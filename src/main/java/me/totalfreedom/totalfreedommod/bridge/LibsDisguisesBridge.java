@@ -35,7 +35,7 @@ public class LibsDisguisesBridge extends FreedomService
         {
             try
             {
-                final Plugin libsDisguises = Bukkit.getServer().getPluginManager().getPlugin("LibsDisguises");
+                final Plugin libsDisguises = server.getPluginManager().getPlugin("LibsDisguises");
                 if (libsDisguises != null)
                 {
                     if (libsDisguises instanceof LibsDisguises)
@@ -69,26 +69,7 @@ public class LibsDisguisesBridge extends FreedomService
         return null;
     }
 
-    public void enableDisguises(Boolean state)
-    {
-        final LibsDisguises libsDisguises = getLibsDisguisesPlugin();
-
-        if (libsDisguises == null)
-        {
-            return;
-        }
-
-        if (state)
-        {
-            DisguiseAPI.enableDisguises();
-        }
-        else
-        {
-            DisguiseAPI.disableDisguises();
-        }
-    }
-
-    public void undisguiseAll(Boolean admins)
+    public void undisguiseAll(boolean admins)
     {
         try
         {
@@ -117,8 +98,36 @@ public class LibsDisguisesBridge extends FreedomService
         }
     }
 
-    public boolean isEnabled()
+    public boolean setPluginEnabled(boolean enabled)
     {
-        return getLibsDisguisesPlugin().isEnabled();
+        Plugin ld = getLibsDisguisesPlugin();
+
+        if (ld == null)
+        {
+            return false;
+        }
+
+        if (enabled)
+        {
+            server.getPluginManager().enablePlugin(ld);
+        }
+        else
+        {
+            server.getPluginManager().disablePlugin(ld);
+        }
+
+        return true;
+    }
+
+    public boolean isPluginEnabled()
+    {
+        Plugin ld = getLibsDisguisesPlugin();
+
+        if (ld == null)
+        {
+            return false;
+        }
+
+        return ld.isEnabled();
     }
 }
