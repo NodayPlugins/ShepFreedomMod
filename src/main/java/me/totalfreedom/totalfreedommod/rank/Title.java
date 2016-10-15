@@ -12,7 +12,10 @@ public enum Title implements Displayable
     COOWNER("the", "Co-Owner of ShepFreedom", ChatColor.BLUE, "Co-Owner"),
     FOUNDER("the", "Founder of ShepFreedom", ChatColor.RED, "Founder"),
     RETIRED("is" " a Retired Admin", ChatColor.RED, "Retired"),
-    OWNER("the", "Owner pf ShepFreedom", ChatColor.BLUE, "Owner");
+    OWNER("the", "Owner pf ShepFreedom", ChatColor.BLUE, "Owner"),
+    // At this point I'm taking custom rank requests a bit.
+    ADMEDAHEAD("is", "an Admedahead", ChatColor.RED, "Admedahead"),
+    PUG("is", "a Pug Lover", ChatColor.BLUE, "Pug");
 
     private final String determiner;
     @Getter
