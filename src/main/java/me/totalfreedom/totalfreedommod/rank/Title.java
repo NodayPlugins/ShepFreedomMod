@@ -8,10 +8,10 @@ public enum Title implements Displayable
 
     DEVELOPER("a", "Developer", ChatColor.DARK_PURPLE, "Dev"),
     SHEPDEVELOPER("a", "Developer", ChatColor.DARK_PURPLE, "Dev"),
-    SYSTEMADMIN("a", "System Admin", ChatColor.RED, "SYS"),
-    EXECUTIVE("an", "Executive", ChatColor.RED, "Executive"),
-    SERVERMANAGER("the", "Server Manager", ChatColor.RED, "Manager"),
+    SERVERMANAGER("the", "Server Manager", ChatColor.GREEN, "Manager"),
     COOWNER("the", "Co-Owner of ShepFreedom", ChatColor.BLUE, "Co-Owner"),
+    FOUNDER("the", "Founder of ShepFreedom", ChatColor.RED, "Founder"),
+    RETIRED("is" " a Retired Admin", ChatColor.RED, "Retired"),
     OWNER("the", "Owner pf ShepFreedom", ChatColor.BLUE, "Owner");
 
     private final String determiner;
