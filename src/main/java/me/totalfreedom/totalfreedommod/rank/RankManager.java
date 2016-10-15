@@ -49,10 +49,16 @@ public class RankManager extends FreedomService
             return Rank.IMPOSTOR;
         }
 
-        // Developers always show up
+        // Developers always show up, this entry lists TFM developerz
         if (FUtil.DEVELOPERS.contains(player.getName()))
         {
             return Title.DEVELOPER;
+        }
+        
+        // If they are retired, they always show up
+        if (ConfigEntry.SERVER_RETIREDS.contains(player.getName()))
+        {
+            return Title.RETIRED;
         }
 
         final Rank rank = getRank(player);
@@ -69,6 +75,38 @@ public class RankManager extends FreedomService
             return Title.OWNER;
         }
 
+        // At this point it's just setting up ranks
+        if (ConfigEntry.SERVER_COOWNERS.getList().contains(player.getName()))
+        {
+            return Title.COOWNER;
+        }
+
+        if (ConfigEntry.SERVER_MANAGERS.getList().contains(player.getName()))
+        {
+            return Title.SERVERMANAGER;
+        }
+        
+        if (ConfigEntry.SERVER_SHEPDEVELOPERS.getList().contains(player.getName()))
+        {
+            return Title.SHEPDEVELOPER;
+        }
+        
+        // Display ItzPinkShep as the founder
+        if (sender.getName().equals("ItzPinkShep")
+        {
+        return FOUNDER;
+        }
+        
+        // Custom Rank Requests in config go here
+        if (ConfigEntry.SERVER_ADMEDAHEAD.getList().contains(player.getName()))
+        {
+            return Title.ADMEDAHEAD;
+        }
+        
+        if (ConfigEntry.SERVER_PUGS.getList().contains(player.getName()))
+        {
+            return Title.PUG;
+        }
         return rank;
     }
 
@@ -158,7 +196,7 @@ public class RankManager extends FreedomService
         }
 
         // Set display
-        if (isAdmin || FUtil.DEVELOPERS.contains(player.getName()))
+        if (isAdmin || FUtil.DEVELOPERS.contains(player.getName()) || ConfigEntry.RETIREDS.contains(player.getName()))
         {
             final Displayable display = getDisplay(player);
             String loginMsg = display.getColoredLoginMessage();
